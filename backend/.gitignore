@@ -1,0 +1,48 @@
+# Python bytecode
+*.py[cod]
+__pycache__/
+
+# Django migrations
+**/migrations/
+
+# PyInstaller
+*.spec
+
+# Environments
+env/
+venv/
+ENV/
+venv.bak/
+*.env
+
+# Database
+*.sqlite3
+
+# Logs
+*.log
+*.pot
+*.py[co]
+
+# Django stuff:
+*.local
+*.lock
+*.pid
+*.swp
+*.swo
+*.DS_Store
+
+# Virtual environment
+venv/
+.env
+
+# media and static files
+media/
+staticfiles/
+static/
+
+# IDE specific files
+.idea/
+.vscode/
+
+# macOS specific files
+.DS_Store

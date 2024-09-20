@@ -1,0 +1,270 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Каталог товаров</title>
+    <meta name="description"
+        content="Каталог товаров. Выберите подходящие товары из широкого ассортимента.">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <link rel="stylesheet" href="{% static 'css/main-style.css' %}">
+</head>
+
+<body id="body">
+    <div class="wrapper">
+        <header class="header header_white">
+            <script> /*document.getElementById("header-sale-close").onclick = ()=>{ document.getElementById("header-sale").classList.add("hidden"); }*/</script>
+            <div class="center-top flex flex_jc-sb" >
+                <div class="header__left-block flex"> <a class="logo" href="/">
+                    <img src="{% static 'images/logo.jpg' %}" alt="" height="80px">
+                </a>
+                    <div class="cityselect"> </div> <button class="nav-button"><span
+                            class="nav-button__icon"><span></span><span></span><span></span></span><span
+                            class="nav-button__text">Меню</span></button>
+                    <div class="main-nav">
+                        <nav class="center text_center">
+                            <ul class="">
+                                <li class="first"><a href="{% url 'services' %}">Услуги</a></li>
+                                <li><a href="{% url 'portfolio' %}">Портфолио</a></li>
+                                <li><a href="{% url 'reviews' %}">Отзывы</a></li>
+                                <li><a href="{% url 'fabrics' %}">Каталог тканей</a></li>
+                                <li><a href="{% url 'products' %}">Каталог товаров</a></li>
+                                <li class="last"><a href="{% url 'location' %}">Контакты</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="header__right-block flex flex_jc-sb flex_ai-center">
+                    <div class="header__contact"><a class="header__contact-tel js-phone-change"
+                            href="tel:+78125610581">8 812 561-05-81</a>
+                        <div class="header__contact-regime">с 9 до 20 без обеда и выходных</div>
+                    </div> <button class="open-modal-btn btn">Задать вопрос</button>
+                </div>
+            </div>
+        </header>
+
+        <style>
+            .header {
+                padding: 10px;
+                background-color: #fff;
+            }
+
+            .center-top {
+                display: flex; /* Make it a flex container */
+                justify-content: space-between; /* Space between the left and right blocks */
+                align-items: center; /* Align items vertically */
+
+            }
+
+            .header__left-block,
+            .header__right-block {
+                display: flex;
+                align-items: center; /* Center items vertically */
+                padding: 5px 0;
+            }
+
+            .logo {
+                max-width: 150px;
+                margin-right: 20px; /* Add some space between the logo and the next item */
+            }
+
+            .header__contact {
+                text-align: right;
+                margin-right: 20px; /* Add some space between the phone number and the button */
+            }
+
+            .open-modal-btn {
+                margin: 0;
+            }
+
+            @media (max-width: 768px) {
+                .center-top {
+                    flex-direction: column; /* Stack items vertically on smaller screens */
+                    width: auto;
+                }
+
+                .header__left-block,
+                .header__right-block {
+                    width: 100%;
+                    justify-content: space-between;
+                }
+
+                .main-nav {
+                    display: none;
+                    flex-direction: column;
+                    width: 100%;
+                }
+
+                .main-nav.active {
+                    display: flex;
+                }
+
+                .nav-button {
+                    display: block;
+                }
+
+                .header__contact {
+                    text-align: center;
+                    margin: 10px 0;
+                }
+
+                .open-modal-btn {
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+        </style>
+
+        <main>
+            <section style="margin-top: 100px;">
+                <div class="banner banner_white banner_catalog relative text_center">
+                    <div class="center relative">
+                        <h1 class="banner__title color_orange">Каталог товаров</h1>
+                        <p>Выберите подходящие товары из широкого ассортимента.</p>
+                    </div>
+                </div>
+
+                <div class="catalog">
+                    <div class="center flex flex_jc-sb flex_ai-fs">
+                        <!-- Блок фильтров -->
+                        <div class="catalog__filter">
+                            <form class="js-filter" action="{% url 'products' %}" method="get">
+                                <!-- Фильтр по категориям -->
+                                <div class="catalog__filter-section">
+                                    <button class="catalog__filter-section-button" type="button">
+                                        <span class="catalog__filter-section-button-text">Категории</span>
+                                        <span class="catalog__filter-section-button-icon js-icon" data-icon="arrow"></span>
+                                    </button>
+                                    <div class="catalog__filter-section-content active">
+                                        {% for category in filter_form.category.field.queryset %}
+                                        <label class="catalog__filter-section-check">
+                                            <input class="catalog__filter-section-check-input" type="checkbox" name="category" value="{{ category.id }}" {% if category.id|stringformat:"s" in selected_categories %}checked{% endif %}>
+                                            <span class="catalog__filter-section-check-box"></span>
+                                            <span class="catalog__filter-section-check-text">{{ category.title }}</span>
+                                        </label>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                                <!-- Фильтр по стоимости -->
+                                <div class="catalog__filter-section">
+                                    <button class="catalog__filter-section-button" type="button">
+                                        <span class="catalog__filter-section-button-text">Стоимость</span>
+                                        <span class="catalog__filter-section-button-icon js-icon" data-icon="arrow"></span>
+                                    </button>
+                                    <div class="catalog__filter-section-content active">
+                                        <label class="catalog__filter-section-check">
+                                            <input class="catalog__filter-section-check-input" type="checkbox" name="price" value="0-1000" {% if "0-1000" in selected_prices %}checked{% endif %}>
+                                            <span class="catalog__filter-section-check-box"></span>
+                                            <span class="catalog__filter-section-check-text">До 1000 ₽</span>
+                                        </label>
+                                        <label class="catalog__filter-section-check">
+                                            <input class="catalog__filter-section-check-input" type="checkbox" name="price" value="1000-1500" {% if "1000-1500" in selected_prices %}checked{% endif %}>
+                                            <span class="catalog__filter-section-check-box"></span>
+                                            <span class="catalog__filter-section-check-text">От 1000 до 1500 ₽</span>
+                                        </label>
+                                        <label class="catalog__filter-section-check">
+                                            <input class="catalog__filter-section-check-input" type="checkbox" name="price" value="1500-" {% if "1500-" in selected_prices %}checked{% endif %}>
+                                            <span class="catalog__filter-section-check-box"></span>
+                                            <span class="catalog__filter-section-check-text">Свыше 1500 ₽</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Применить фильтры -->
+                                <button type="submit" class="catalog__filter-apply" style="color: green;font-size: 20px;">Применить фильтры</button>
+
+                                <!-- Сбросить фильтры -->
+                                <button class="catalog__filter-clear" type="reset" style="color: red;font-size: 20px;" onclick="resetFilters()">Сбросить фильтры</button>
+                            </form>
+                        </div>
+
+                        <!-- Блок товаров -->
+                        <div class="catalog__content">
+                            <div class="js-card flex">
+                                {% for product in products %}
+                                <div class="catalog__item">
+                                    <a class="catalog__item-img" href="{% url 'product' product.id %}">
+                                        {% for image in images %}
+                                        {% if image.product == product %}
+                                        <div class="product-slider product__slider">
+                                            <div class="product-slider__item">
+                                                <picture>
+                                                    <source srcset="{{ image.image.url }}" type="image/webp">
+                                                    <img src="{{ image.image.url }}" alt="{{ product.title }}">
+                                                </picture>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        {% empty %}
+                                        <p>Нет изображений для этого продукта.</p>
+                                        {% endfor %}
+                                    </a>
+                                    <div class="catalog__item-content">
+                                        <a class="catalog__item-title" href="{% url 'product' product.id %}">{{ product.title }}</a>
+                                        <div class="catalog__item-description">Категория: {{ product.category.title }}</div>
+                                        <a class="catalog__item-button" href="#">Купить от {{ product.price }} ₽</a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer relative">
+            <div class="center">
+                <div class="flex flex_jc-sb">
+                    <div class="footer_item">
+                        <span class="footer_item__header">Услуги</span>
+                        <ul>
+                            <li><a href="{% url 'service_detail' 17 %}">Частичная перетяжка мебели</a></li>
+                            <li><a href="{% url 'service_detail' 8 %}">Реставрация мягкой мебели</a></li>
+                            <li><a href="{% url 'service_detail' 9 %}">Производство подушек</a></li>
+                            <li><a href="{% url 'service_detail' 10 %}">Пошив чехлов</a></li>
+                            <li><a href="{% url 'services' %}" style="color: #06488b;"><strong>Другие услуги</strong></a></li>
+                        </ul>
+                    </div>
+                    <div class="footer_item">
+                        <ul>
+                            <li class="first"><a href="{% url 'portfolio' %}">Портфолио</a></li>
+                            <li><a href="{% url 'reviews' %}">Отзывы</a></li>
+                            <li><a href="{% url 'fabrics' %}">Каталог тканей</a></li>
+                            <li><a href="{% url 'products' %}">Каталог товаров</a></li>
+                            <li class="last"><a href="{% url 'location' %}">Контакты</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.product-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                adaptiveHeight: true
+            });
+        });
+
+
+    function resetFilters() {
+        window.location.href = "{% url 'products' %}";
+    }
+    </script>
+    <script>
+        document.querySelector('.nav-button').addEventListener('click', () => {
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
