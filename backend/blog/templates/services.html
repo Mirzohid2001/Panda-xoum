@@ -197,97 +197,97 @@
                     </div>
                 </div>
             </section>
-            <section class="section service text_center ">
-                <h4 class="slider-title">Независимые отзывы</h4>
-                <div class="slider-container">
-                    <!-- Slider Items -->
-                    <div class="slider-wrapper">
-                        <div class="slide"><img src="{% static 'images/compaines/yandex.jpg' %}" alt="Yandex Rating">
-                            <p>Рейтинг 4.9 из 5</p>
-                        </div>
-                        <div class="slide"><img src="{% static 'images/compaines/aboutfirm.jpg' %}"
-                                alt="AboutFirm Rating">
-                            <p>Рейтинг 5.0 из 5</p>
-                        </div>
-                        <div class="slide"><img src="{% static 'images/compaines/remkarta.jpg' %}"
-                                alt="Remkarta Rating">
-                            <p>Рейтинг 4.7 из 5</p>
-                        </div>
-                        <div class="slide"><img src="{% static 'images/compaines/imho24.jpg' %}" alt="Imho24 Rating">
-                            <p>Рейтинг 5.0 из 5</p>
-                        </div>
-                        <div class="slide"><img src="{% static 'images/compaines/spravkainform.jpg' %}"
-                                alt="Spravkainform Rating">
-                            <p>Рейтинг 4.5 из 5</p>
-                        </div>
-                        <div class="slide"><img src="{% static 'images/compaines/cataloxy.jpg' %}"
-                                alt="Cataloxy Rating">
-                            <p>Рейтинг 4.8 из 5</p>
-                        </div>
-                    </div>
-                    <!-- Slider Controls -->
-                    <button class="prev" onclick="moveSlide(-1)">❮</button>
-                    <button class="next" onclick="moveSlide(1)">❯</button>
-                </div>
-                <style>
-                    .slider-container {
-                        position: relative;
-                        width: 80%;
-                        max-width: 1200px;
-                        /* Adjust as needed */
-                        margin: auto;
-                        overflow: hidden;
-                        /* Hide slides overflow */
-                        border: 1px solid #ddd;
-                        /* Optional: for better visibility */
-                    }
+<!--?            <section class="section service text_center ">-->
+<!--?                <h4 class="slider-title">Независимые отзывы</h4>-->
+<!--?                <div class="slider-container">-->
+<!--?                    <!-- Slider Items -->
+<!--?                    <div class="slider-wrapper">-->
+<!--?                        <div class="slide"><img src="{% static 'images/compaines/yandex.jpg' %}" alt="Yandex Rating">-->
+<!--?                            <p>Рейтинг 4.9 из 5</p>-->
+<!--?                        </div>-->
+<!--?                        <div class="slide"><img src="{% static 'images/compaines/aboutfirm.jpg' %}"-->
+<!--?                                alt="AboutFirm Rating">-->
+<!--?                            <p>Рейтинг 5.0 из 5</p>-->
+<!--?                        </div>-->
+<!--?                        <div class="slide"><img src="{% static 'images/compaines/remkarta.jpg' %}"-->
+<!--?                                alt="Remkarta Rating">-->
+<!--?                            <p>Рейтинг 4.7 из 5</p>-->
+<!--?                        </div>-->
+<!--?                        <div class="slide"><img src="{% static 'images/compaines/imho24.jpg' %}" alt="Imho24 Rating">-->
+<!--?                            <p>Рейтинг 5.0 из 5</p>-->
+<!--?                        </div>-->
+<!--?                        <div class="slide"><img src="{% static 'images/compaines/spravkainform.jpg' %}"-->
+<!--?                                alt="Spravkainform Rating">-->
+<!--?                            <p>Рейтинг 4.5 из 5</p>-->
+<!--?                        </div>-->
+<!--?                        <div class="slide"><img src="{% static 'images/compaines/cataloxy.jpg' %}"-->
+<!--?                                alt="Cataloxy Rating">-->
+<!--?                            <p>Рейтинг 4.8 из 5</p>-->
+<!--?                        </div>-->
+<!--?                    </div>-->
+<!--?                    <!-- Slider Controls -->
+<!--?                    <button class="prev" onclick="moveSlide(-1)">❮</button>-->
+<!--?                    <button class="next" onclick="moveSlide(1)">❯</button>-->
+<!--?                </div>-->
+<!--?                <style>-->
+<!--?                    .slider-container {-->
+<!--?                        position: relative;-->
+<!--?                        width: 80%;-->
+<!--?                        max-width: 1200px;-->
+<!--?                        /* Adjust as needed */-->
+<!--?                        margin: auto;-->
+<!--?                        overflow: hidden;-->
+<!--?                        /* Hide slides overflow */-->
+<!--?                        border: 1px solid #ddd;-->
+<!--?                        /* Optional: for better visibility */-->
+<!--?                    }-->
 
-                    .slider-wrapper {
-                        display: flex;
-                        /* Display slides in a row */
-                        transition: transform 0.5s ease;
-                        /* Smooth transition for slide movement */
-                    }
+<!--?                    .slider-wrapper {-->
+<!--?                        display: flex;-->
+<!--?                        /* Display slides in a row */-->
+<!--?                        transition: transform 0.5s ease;-->
+<!--?                        /* Smooth transition for slide movement */-->
+<!--?                    }-->
 
-                    .slider-title {
-                        font-size: 30px;
-                        margin-bottom: 30px;
-                    }
+<!--?                    .slider-title {-->
+<!--?                        font-size: 30px;-->
+<!--?                        margin-bottom: 30px;-->
+<!--?                    }-->
 
-                    .slide {
-                        flex: 0 0 33.33%;
-                        /* Each slide takes up one-third of the slider */
-                        box-sizing: border-box;
-                        text-align: center;
-                        padding: 10px;
-                        /* Add some spacing */
-                    }
+<!--?                    .slide {-->
+<!--?                        flex: 0 0 33.33%;-->
+<!--?                        /* Each slide takes up one-third of the slider */-->
+<!--?                        box-sizing: border-box;-->
+<!--?                        text-align: center;-->
+<!--?                        padding: 10px;-->
+<!--?                        /* Add some spacing */-->
+<!--?                    }-->
 
-                    .prev,
-                    .next {
-                        cursor: pointer;
-                        position: absolute;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        padding: 8px 16px;
-                        color: #fff;
-                        background-color: rgba(0, 0, 0, 0.5);
-                        border: none;
-                        border-radius: 50%;
-                        font-size: 18px;
-                        z-index: 1;
-                        /* Ensure buttons are on top */
-                    }
+<!--?                    .prev,-->
+<!--?                    .next {-->
+<!--?                        cursor: pointer;-->
+<!--?                        position: absolute;-->
+<!--?                        top: 50%;-->
+<!--?                        transform: translateY(-50%);-->
+<!--?                        padding: 8px 16px;-->
+<!--?                        color: #fff;-->
+<!--?                        background-color: rgba(0, 0, 0, 0.5);-->
+<!--?                        border: none;-->
+<!--?                        border-radius: 50%;-->
+<!--?                        font-size: 18px;-->
+<!--?                        z-index: 1;-->
+<!--?                        /* Ensure buttons are on top */-->
+<!--?                    }-->
 
-                    .prev {
-                        left: 10px;
-                    }
+<!--?                    .prev {-->
+<!--?                        left: 10px;-->
+<!--?                    }-->
 
-                    .next {
-                        right: 10px;
-                    }
-                </style>
-            </section>
+<!--?                    .next {-->
+<!--?                        right: 10px;-->
+<!--?                    }-->
+<!--?                </style>-->
+<!--?            </section>-->
             <footer class="footer relative">
                 <div class="center">
                   <div class="flex flex_jc-sb">
