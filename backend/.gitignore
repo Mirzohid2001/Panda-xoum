@@ -35,10 +35,6 @@ venv.bak/
 venv/
 .env
 
-# media and static files
-media/
-staticfiles/
-static/
 
 # IDE specific files
 .idea/

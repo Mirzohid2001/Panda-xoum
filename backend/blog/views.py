@@ -99,18 +99,18 @@ def fabric_detail_view(request, pk):
     return render(request, 'fabric_detail.html', context)
 
 
-# @cache_page(60 * 15)
-# def blog_list_view(request):
-#     queryset = Blog.objects.all()
-#     context = {'blogs': queryset}
-#     return render(request, 'your_template/blog_list.html', context)
+@cache_page(60 * 15)
+def blog_list_view(request):
+    queryset = Blog.objects.all()
+    context = {'blogs': queryset}
+    return render(request, 'your_template/blog_list.html', context)
 
 
-# @cache_page(60 * 15)
-# def blog_detail_view(request, slug):
-#     blog = get_object_or_404(Blog, slug=slug)
-#     context = {'blog': blog}
-#     return render(request, 'your_template/blog_detail.html', context)
+@cache_page(60 * 15)
+def blog_detail_view(request, slug):
+    blog = get_object_or_404(Blog, slug=slug)
+    context = {'blog': blog}
+    return render(request, 'your_template/blog_detail.html', context)
 
 
 def review_list_view(request):
@@ -123,11 +123,11 @@ def location(request):
     return render(request, 'location.html')
 
 
-# @cache_page(60 * 15)
-# def fabric_type_list_view(request):
-#     queryset = FabricType.objects.all()
-#     context = {'fabric_types': queryset}
-#     return render(request, 'your_template/fabric_type_list.html', context)
+@cache_page(60 * 15)
+def fabric_type_list_view(request):
+    queryset = FabricType.objects.all()
+    context = {'fabric_types': queryset}
+    return render(request, 'your_template/fabric_type_list.html', context)
 
 
 def fabrics(request):
@@ -206,11 +206,11 @@ def portfolio(request):
     return render(request, 'portfolio.html', context)
 
 
-# @cache_page(60 * 15)
-# def service_category_list_view(request):
-#     queryset = ServiceCategory.objects.all()
-#     context = {'service_categories': queryset}
-#     return render(request, 'your_template/service_category_list.html', context)
+@cache_page(60 * 15)
+def service_category_list_view(request):
+    queryset = ServiceCategory.objects.all()
+    context = {'service_categories': queryset}
+    return render(request, 'your_template/service_category_list.html', context)
 
 
 def service_list_view(request):
@@ -232,55 +232,55 @@ def service_detail_view(request, pk):
     return render(request, 'service_detail.html', context)
 
 
-# @cache_page(60 * 15)
-# def faq_list_view(request):
-#     queryset = FAQ.objects.all()
-#     context = {'faqs': queryset}
-#     return render(request, 'your_template/faq_list.html', context)
+@cache_page(60 * 15)
+def faq_list_view(request):
+    queryset = FAQ.objects.all()
+    context = {'faqs': queryset}
+    return render(request, 'your_template/faq_list.html', context)
 
 
-# @cache_page(60 * 15)
-# def guide_list_view(request):
-#     queryset = Guide.objects.all()
-#     context = {'guides': queryset}
-#     return render(request, 'your_template/guide_list.html', context)
+@cache_page(60 * 15)
+def guide_list_view(request):
+    queryset = Guide.objects.all()
+    context = {'guides': queryset}
+    return render(request, 'your_template/guide_list.html', context)
 
 
-# @cache_page(60 * 15)
-# def rating_list_view(request):
-#     queryset = Rating.objects.all().order_by('-rating')
-#     context = {'ratings': queryset}
-#     return render(request, 'your_template/rating_list.html', context)
+@cache_page(60 * 15)
+def rating_list_view(request):
+    queryset = Rating.objects.all().order_by('-rating')
+    context = {'ratings': queryset}
+    return render(request, 'your_template/rating_list.html', context)
 
 
-# @cache_page(60 * 15)
-# def ad_banner_list_view(request):
-#     queryset = AdBanner.objects.all()
-#     context = {'ad_banners': queryset}
-#     return render(request, 'your_template/ad_banner_list.html', context)
-#
-#
-# @cache_page(60 * 15)
-# def product_comparison_view(request):
-#     product_ids = request.GET.getlist('ids')
-#     products = Product.objects.filter(id__in=product_ids)
-#     context = {'products': products}
-#     return render(request, 'your_template/product_comparison.html', context)
+@cache_page(60 * 15)
+def ad_banner_list_view(request):
+    queryset = AdBanner.objects.all()
+    context = {'ad_banners': queryset}
+    return render(request, 'your_template/ad_banner_list.html', context)
 
 
-# @cache_page(60 * 15)
-# def fabric_product_comparison_view(request):
-#     fabric_ids = request.GET.getlist('fabric_ids')
-#     fabrics = FabricProduct.objects.filter(id__in=fabric_ids)
-#     context = {'fabrics': fabrics}
-#     return render(request, 'your_template/fabric_comparison.html', context)
-#
-#
-# @cache_page(60 * 15)
-# def worker_list_view(request):
-#     queryset = Worker.objects.all()
-#     context = {'workers': queryset}
-#     return render(request, 'your_template/worker_list.html', context)
+@cache_page(60 * 15)
+def product_comparison_view(request):
+    product_ids = request.GET.getlist('ids')
+    products = Product.objects.filter(id__in=product_ids)
+    context = {'products': products}
+    return render(request, 'your_template/product_comparison.html', context)
+
+
+@cache_page(60 * 15)
+def fabric_product_comparison_view(request):
+    fabric_ids = request.GET.getlist('fabric_ids')
+    fabrics = FabricProduct.objects.filter(id__in=fabric_ids)
+    context = {'fabrics': fabrics}
+    return render(request, 'your_template/fabric_comparison.html', context)
+
+
+@cache_page(60 * 15)
+def worker_list_view(request):
+    queryset = Worker.objects.all()
+    context = {'workers': queryset}
+    return render(request, 'your_template/worker_list.html', context)
 
 
 def submit_question(request):
